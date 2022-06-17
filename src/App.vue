@@ -2,14 +2,16 @@
 	<div class="home__container">
 		<Navbar />
 		<router-view />
+		<Footer />
 	</div>
 </template>
 
 <script>
 import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
 export default {
 	name: "Home",
-	components: { Navbar },
+	components: { Navbar, Footer },
 };
 </script>
 <style>
@@ -20,11 +22,12 @@ export default {
 }
 body {
 	font-family: sans-serif;
-	margin: 10px;
 }
 .home__container {
 	max-width: 1280px;
 	margin: auto;
 	background-color: #f7f7ef;
+	margin-top: 10px;
+	box-sizing: border-box;
 }
 </style>
