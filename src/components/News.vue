@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="container__left">
 			<div>{{ index + 1 }}.</div>
-			<img class="up-icon" src="../assets/up-icon.svg" />
+			<!-- <img class="up-icon" src="../assets/up-icon.svg" /> -->
 		</div>
 		<div class="container__right">
 			<div class="container__right-top">
@@ -12,16 +12,20 @@
 					</span>
 				</a>
 
-				<a :href="url" class="link"> ({{ shorturl.url }}) </a>
+				<a :href="url" class="link link-url"> ({{ shorturl.url }}) </a>
 			</div>
 			<div class="container__right-bottom">
 				<span
-					>{{ point }} points by<a :href="'/user/' + name">
+					>{{ point }} points by<a
+						class="name"
+						:href="'/user/' + name"
+					>
 						{{ name }}</a
 					>
-					{{ moment(actualTime).fromNow() }} </span
-				><span class="hide">hide</span
-				><span
+					{{ moment(actualTime).fromNow() }}
+				</span>
+				<!-- <span class="hide">hide</span> -->
+				<span
 					><a class="comment" :href="'/comment/' + id"
 						>{{ comments }} comments</a
 					></span
@@ -91,27 +95,36 @@ a {
 	text-decoration: none;
 	color: black;
 }
+a:hover {
+	text-decoration: underline;
+}
+.link-url:hover {
+	text-decoration: underline !important;
+}
 .container {
 	display: flex;
 	padding: 10px 2px;
 	height: 35px;
-	letter-spacing: 0.5px;
 	width: 100%;
 }
 .container__right {
 	width: 80%;
 }
 .container__left {
-	width: 40px;
 	display: flex;
 	color: #a8a8a8;
 	justify-content: flex-end;
-	padding-right: 5px;
-	font-size: 14px;
-	color: rgb(74, 74, 74, 0.7);
+	font-size: 10pt;
+	color: #828282;
+	margin-right: 5px;
+	min-width: 22px;
 }
 .container__right-top {
 	display: flex;
+}
+.name {
+	color: #a8a8a8;
+	margin: 0 5px;
 }
 .hide {
 	padding: 0px 2px;
@@ -122,35 +135,41 @@ a {
 .container__right-bottom {
 	font-size: 10px;
 	line-height: 6px;
-	opacity: 0.6;
+	color: #a8a8a8;
 	cursor: pointer;
 }
 .title {
+	text-decoration: none;
 	margin: 0 5px 0 0;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	font-size: 14px;
+	font-size: 10pt;
 	cursor: pointer;
 }
-.up-icon {
-	margin-top: 3px;
-	height: 10px;
-	width: 10px;
+.title:hover {
+	text-decoration: none !important;
 }
+
 .comment {
 	text-decoration: none;
-	color: black;
+	margin: 0 5px;
+	color: #a8a8a8;
 }
 .link {
-	opacity: 0.7;
 	font-size: 10px;
+
 	line-height: 20px;
 	cursor: pointer;
 	text-decoration: none;
-	color: black;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+.link:hover {
+	text-decoration: none;
+}
+.link:visited {
+	color: #a8a8a8;
 }
 </style>

@@ -86,9 +86,10 @@ export default {
 	color: #a8a8a8;
 	background: none;
 	border: none;
-	margin: 10px 45px;
+	margin: 20px 0;
 	cursor: pointer;
-	font-size: 14px;
+	font-size: 10pt;
+	margin-left: 25px;
 }
 .loading {
 	border-radius: 100%;

@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<div class="container__left">
-			<img class="up-icon" src="../assets/up-icon.svg" />
+			<!-- <img class="up-icon" src="../assets/up-icon.svg" /> -->
 		</div>
 		<div class="container__right">
 			<div class="info">
@@ -9,14 +9,14 @@
 				<span class="info__time">{{
 					moment(actualTime).fromNow()
 				}}</span>
-				<span class="info__next">next</span>
-				<span class="info__collapse">[ - ]</span>
+				<!-- <span class="info__next">next</span>
+				<span class="info__collapse">[ - ]</span> -->
 			</div>
 			<div class="text">
 				<div v-if="!body" class="loading"></div>
 				{{ body }}
 			</div>
-			<p class="comment__reply">reply</p>
+			<!-- <p class="comment__reply">reply</p> -->
 			<div v-if="data.kids">
 				<div v-for="kid in data.kids" :key="kid">
 					<Comment :id="kid" />
@@ -76,6 +76,9 @@ export default {
 	display: flex;
 	margin-top: 10px;
 }
+a:host {
+	text-decoration: underline;
+}
 .comment__reply {
 	font-size: 12px;
 	margin-top: 10px;
@@ -91,7 +94,7 @@ export default {
 	opacity: 0.7;
 }
 .text {
-	font-size: 13px;
+	font-size: 12px;
 	margin-top: 5px;
 }
 .container__left {
@@ -101,7 +104,6 @@ export default {
 	margin-left: 15px;
 }
 .info__time {
-	border-right: 1.5px solid rgb(57, 56, 56, 0.6);
 	padding: 0 5px;
 }
 .info__next {

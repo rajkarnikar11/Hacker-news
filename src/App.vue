@@ -21,13 +21,13 @@ export default {
 	padding: 0;
 }
 body {
-	font-family: sans-serif;
+	font-family: Verdana, sans-serif;
 }
 .home__container {
-	max-width: 1280px;
+	max-width: 1295px;
 	margin: auto;
 	background-color: #f7f7ef;
-	margin-top: 10px;
+	margin-top: 7px;
 	box-sizing: border-box;
 }
 </style>

@@ -2,13 +2,31 @@
 	<div>
 		<div class="home__line" />
 		<ul class="list">
-			<li class="list-item list-item--faded">Guideline</li>
-			<li class="list-item">FAQ</li>
-			<li class="list-item">Lists</li>
-			<li class="list-item list-item--faded">API</li>
-			<li class="list-item">Security</li>
-			<li class="list-item">Legal</li>
-			<li class="list-item">Apply to YC</li>
+			<li class="list-item list-item--faded">
+				<a href="https://news.ycombinator.com/newsguidelines.html"
+					>Guideline</a
+				>
+			</li>
+			<li class="list-item">
+				<a href="https://news.ycombinator.com/newsfaq.html">FAQ</a>
+			</li>
+			<li class="list-item">
+				<a href="https://news.ycombinator.com/lists">Lists</a>
+			</li>
+			<li class="list-item">
+				<a href="https://news.ycombinator.com/lists">API</a>
+			</li>
+			<li class="list-item">
+				<a href="https://news.ycombinator.com/security.html"
+					>Security</a
+				>
+			</li>
+			<li class="list-item">
+				<a href="https://www.ycombinator.com/legal/">Legal</a>
+			</li>
+			<li class="list-item">
+				<a href="https://www.ycombinator.com/apply/">Apply to YC</a>
+			</li>
 			<li class="list-item">Contact</li>
 		</ul>
 		<div class="search">
@@ -25,6 +43,16 @@ export default {};
 <style scoped>
 * {
 	list-style: none;
+	text-decoration: none;
+}
+a {
+	color: black;
+	padding: 0 5px;
+	border-right: 1px solid black;
+}
+a:visited {
+	color: #a8a8a8;
+	border-right: 1px solid #a8a8a8;
 }
 .search {
 	display: flex;
@@ -38,11 +66,9 @@ export default {};
 	justify-content: center;
 	margin-top: 25px;
 }
-.list-item--faded {
-	opacity: 0.8;
-}
 .search__title {
 	color: #a8a8a8;
+	font-size: 10pt;
 }
 .search__field {
 	margin: 0 10px;
@@ -53,11 +79,8 @@ export default {};
 	background-color: #ff6600;
 }
 .list-item {
-	padding: 0 5px;
-	border-right: 1px solid black;
-	font-size: 12px;
+	font-size: 8pt;
 	cursor: pointer;
-	letter-spacing: 0.2px;
 }
 .list-item:last-of-type {
 	border: none;

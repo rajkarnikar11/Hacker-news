@@ -6,8 +6,8 @@
 		</div>
 		<div class="line__container">
 			<p class="line__left">created:</p>
-			<p class="line__right">
-				{{ moment(date).format("MMMM  Do , YYYY") }}
+			<p class="line__right date">
+				{{ moment(date).format("MMMM  D , YYYY") }}
 			</p>
 		</div>
 		<div class="line__container">
@@ -16,7 +16,8 @@
 		</div>
 		<div class="line__container">
 			<p class="line__left">about:</p>
-			<p class="line__right">{{ user.about }}</p>
+			<p class="line__right">{{ about }}</p>
+			<!-- <a class="comment" :href="'/comment/' + user.id"> comments</a> -->
 		</div>
 	</div>
 </template>
@@ -30,6 +31,7 @@ export default {
 			moment: moment,
 			user: [],
 			date: 0,
+			about: "",
 		};
 	},
 	created() {
@@ -46,26 +48,45 @@ export default {
 				.then((data) => {
 					this.user = data;
 					console.log(this.user);
-
+					this.stringToHTML(this.user.about);
 					this.date = moment.unix(data.created);
 					console.log(this.date);
 				});
+		},
+		stringToHTML(html) {
+			// Create a new div element
+			var tempDivElement = document.createElement("div");
+
+			// Set the HTML content with the given value
+			tempDivElement.innerHTML = html;
+
+			// Retrieve the text property of the element
+			this.about =
+				tempDivElement.textContent || tempDivElement.innerText || "";
 		},
 	},
 };
 </script>
 
 <style scoped>
+* {
+	color: #828282;
+	font-size: 10pt;
+}
 .line__container {
 	display: flex;
-	margin: 10px 0;
-	color: grey;
+	margin: 4px 0;
+
 	font-size: 14px;
+}
+.date {
+	color: black;
 }
 .container {
 	padding: 4px;
+	margin-top: 8px;
 }
 .line__left {
-	width: 65px;
+	width: 58px;
 }
 </style>

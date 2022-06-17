@@ -2,7 +2,7 @@
 	<div>
 		<div class="container">
 			<div class="container__left">
-				<img class="up-icon" src="../assets/up-icon.svg" />
+				<!-- <img class="up-icon" src="../assets/up-icon.svg" /> -->
 			</div>
 			<div class="container__right">
 				<div class="container__right-top">
@@ -14,11 +14,12 @@
 				<div class="container__right-bottom">
 					<span
 						>{{ news.score }} points by {{ news.by }}
-						{{ moment(actualTime).fromNow() }} </span
-					><span class="hide">hide</span>
+						{{ moment(actualTime).fromNow() }}
+					</span>
+					<!-- <span class="hide">hide</span>
 					<span class="">past</span>
-					<span class="hide">favourite</span
-					><span
+					<span class="hide">favourite</span> -->
+					<span
 						><a
 							class="comment"
 							:href="'/comment/' + $route.params.id"
@@ -93,7 +94,6 @@ export default {
 .container {
 	display: flex;
 	padding: 10px 2px;
-	letter-spacing: 0.5px;
 	width: 100%;
 	margin-top: 10px;
 }
@@ -124,7 +124,7 @@ button {
 }
 .container__right-bottom {
 	font-size: 10px;
-	opacity: 0.6;
+	color: #a8a8a8;
 	cursor: pointer;
 }
 .title {
@@ -132,7 +132,8 @@ button {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	font-size: 14px;
+	font-size: 10pt;
+	color: #a8a8a8;
 }
 .up-icon {
 	height: 9px;
@@ -145,20 +146,20 @@ textarea {
 }
 .comment {
 	text-decoration: none;
-	color: black;
+	color: #a8a8a8;
+	margin: 0 5px;
 }
 .link {
-	opacity: 0.7;
 	font-size: 10px;
 	line-height: 20px;
 	cursor: pointer;
 	text-decoration: none;
-	color: black;
+	color: #a8a8a8;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 .title--comment {
-	color: rgb(57, 56, 56) !important;
+	color: #a8a8a8 !important;
 }
 </style>

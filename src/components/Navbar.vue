@@ -6,12 +6,12 @@
 				<h1 class="title__name">Hacker News</h1>
 			</router-link>
 			<router-link class="nav__link" to="/newest">new</router-link>
-			<router-link class="nav__link" to="/front">past</router-link>
+			<!-- <router-link class="nav__link" to="/front">past</router-link>
 			<router-link class="nav__link" to="/comment">comments</router-link>
 			<router-link class="nav__link" to="/ask">ask</router-link>
 			<router-link class="nav__link" to="/show">show</router-link>
 			<router-link class="nav__link" to="/jobs">jobs</router-link>
-			<router-link class="nav__link" to="/submit">submit</router-link>
+			<router-link class="nav__link" to="/submit">submit</router-link> -->
 		</div>
 		<div class="nav__right">
 			<router-link class="nav__link" to="/submit">login</router-link>
@@ -31,12 +31,11 @@ nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	height: 23px;
+	height: 24px;
 }
 .nav__left .nav__link {
 	border-right: 1px solid black;
 	padding: 0px 10px;
-	margin-top: 2px;
 	height: 18 px;
 }
 .title__container {
@@ -47,9 +46,8 @@ nav {
 .nav__left {
 	display: flex;
 	max-width: 45%;
-	font-size: 13px;
+	font-size: 13.5px;
 
-	letter-spacing: 0.5px;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -60,11 +58,9 @@ nav {
 }
 
 .title__name {
-	font-size: 14px;
+	font-size: 10pt;
 	line-height: 25px;
 	color: black;
-	letter-spacing: 0.5px;
-	margin-top: 2px;
 	min-width: 100px;
 }
 .nav__right {
@@ -73,16 +69,18 @@ nav {
 }
 .title__logo {
 	color: white;
-	font-size: 15px;
+	font-size: 14px;
+	font-weight: normal;
 	line-height: 25px;
 	justify-content: center;
 	align-items: center;
-	margin-right: 10px;
+	margin-right: 5px;
 	display: flex;
 	border: 1px solid white;
 	height: 20px;
 	box-sizing: border-box;
 	width: 20px;
+	margin-left: 1px;
 }
 .router-link-exact-active {
 	color: white;
