@@ -24,7 +24,7 @@ body {
 	font-family: Verdana, sans-serif;
 }
 .home__container {
-	max-width: 1295px;
+	max-width: 1277px;
 	margin: auto;
 	background-color: #f7f7ef;
 	margin-top: 7px;

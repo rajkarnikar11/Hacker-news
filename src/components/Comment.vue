@@ -129,8 +129,14 @@ a:host {
 	from {
 		transform: rotate(0deg);
 	}
+	30% {
+		transform: rotate(660deg);
+	}
+	50% {
+		transform: rotate(750deg);
+	}
 	to {
-		transform: rotate(360deg);
+		transform: rotate(1080deg);
 	}
 }
 </style>

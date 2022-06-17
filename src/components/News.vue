@@ -170,6 +170,6 @@ a:hover {
 	text-decoration: none;
 }
 .link:visited {
-	color: #a8a8a8;
+	color: #828282;
 }
 </style>
