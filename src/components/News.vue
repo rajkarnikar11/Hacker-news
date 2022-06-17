@@ -26,8 +26,8 @@
 				</span>
 				<!-- <span class="hide">hide</span> -->
 				<span
-					><a class="comment" :href="'/comment/' + id"
-						>{{ comments }} comments</a
+					><router-link class="comment" :to="'/comment/' + id"
+						>{{ comments }} comments</router-link
 					></span
 				>
 			</div>
@@ -103,7 +103,7 @@ a:hover {
 }
 .container {
 	display: flex;
-	padding: 10px 2px;
+	padding: 8pt 2px;
 	height: 35px;
 	width: 100%;
 }
@@ -133,7 +133,7 @@ a:hover {
 	margin: 3px;
 }
 .container__right-bottom {
-	font-size: 10px;
+	font-size: 8pt;
 	line-height: 6px;
 	color: #a8a8a8;
 	cursor: pointer;
@@ -157,7 +157,7 @@ a:hover {
 	color: #a8a8a8;
 }
 .link {
-	font-size: 10px;
+	font-size: 8pt;
 
 	line-height: 20px;
 	cursor: pointer;

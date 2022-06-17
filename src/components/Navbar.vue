@@ -65,7 +65,7 @@ nav {
 }
 .nav__right {
 	margin-right: 5px;
-	font-size: 13px;
+	font-size: 10pt;
 }
 .title__logo {
 	color: white;

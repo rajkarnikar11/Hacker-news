@@ -20,10 +20,10 @@
 					<span class="">past</span>
 					<span class="hide">favourite</span> -->
 					<span
-						><a
+						><router-link
 							class="comment"
-							:href="'/comment/' + $route.params.id"
-							>{{ news.descendants }} comments</a
+							:to="'/comment/' + $route.params.id"
+							>{{ news.descendants }} comments</router-link
 						></span
 					>
 				</div>
