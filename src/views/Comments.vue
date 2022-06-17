@@ -19,7 +19,9 @@
 					<span class="">past</span>
 					<span class="hide">favourite</span
 					><span
-						><a class="comment" :href="'/comment/' + id"
+						><a
+							class="comment"
+							:href="'/comment/' + $route.params.id"
 							>{{ news.descendants }} comments</a
 						></span
 					>

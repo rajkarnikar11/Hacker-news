@@ -16,7 +16,9 @@
 			</div>
 			<div class="container__right-bottom">
 				<span
-					>{{ point }} points by {{ name }}
+					>{{ point }} points by<a :href="'/user/' + name">
+						{{ name }}</a
+					>
 					{{ moment(actualTime).fromNow() }} </span
 				><span class="hide">hide</span
 				><span
@@ -85,6 +87,10 @@ export default {
 </script>
 
 <style scoped>
+a {
+	text-decoration: none;
+	color: black;
+}
 .container {
 	display: flex;
 	padding: 10px 2px;

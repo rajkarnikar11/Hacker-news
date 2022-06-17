@@ -104,6 +104,9 @@ export default {
 	from {
 		transform: rotate(0deg);
 	}
+	30% {
+		transform: rotate(660deg);
+	}
 	50% {
 		transform: rotate(750deg);
 	}
