@@ -9,7 +9,7 @@
 					<span class="title title--comment">
 						{{ news.title }}
 					</span>
-					<a :href="url" class="link"> ({{ shorturl }}) </a>
+					<a :href="news.url" class="link"> ({{ shorturl }}) </a>
 				</div>
 				<div class="container__right-bottom">
 					<span
@@ -82,7 +82,7 @@ export default {
 				})
 				.then((data) => {
 					this.news = data;
-					console.log(data);
+					// console.log(data);
 					this.actualTime = moment.unix(this.news.time);
 					this.editUrl(data.url);
 				});

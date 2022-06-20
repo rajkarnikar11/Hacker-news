@@ -2,7 +2,7 @@
 	<div class="home">
 		<div v-if="loading " class="loading"></div>
 
-		<div v-for="(data, index) in news" :key="data.id">
+		<div  v-for="(data, index) in news" :key="data.id">
 			<News
 				v-if="index >= pageCounter && index < pageCounter + 30"
 				:index="index"

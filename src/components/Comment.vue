@@ -45,6 +45,7 @@ export default {
 	created() {
 		this.fetchComment(this.id);
 	},
+	
 	methods: {
 		fetchComment(id) {
 			this.loading = true;
@@ -54,7 +55,7 @@ export default {
 					// console.log(res.body.json());
 				})
 				.then((res) => {
-					console.log(res);
+					// console.log(res);
 					this.data = res;
 					this.body = this.stringToHTML(this.data.text);
 					this.actualTime = moment.unix(this.data.time);
@@ -91,8 +92,7 @@ a:host {
 	text-decoration: underline;
 	cursor: pointer;
 }
-.info {
-}
+
 .info > span {
 	font-size: 10px;
 	color: rgb(57, 56, 56);
@@ -115,8 +115,7 @@ a:host {
 .info__next {
 	padding: 0 5px;
 }
-.container__right {
-}
+
 .up-icon {
 	height: 9px;
 	width: 9px;
