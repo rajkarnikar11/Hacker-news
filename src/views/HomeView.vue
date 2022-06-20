@@ -30,7 +30,7 @@ export default {
 			news: [],
 			titles: [],
 			shorturl: [],
-			fetcher:30,
+			fetcher:100,
 			i: 0,
 			arrayFlag: 0,
 			pageCounter: 0,
