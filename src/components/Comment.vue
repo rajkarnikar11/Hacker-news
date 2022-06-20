@@ -59,10 +59,9 @@ export default {
 					this.data = res;
 					this.body = this.stringToHTML(this.data.text);
 					this.actualTime = moment.unix(this.data.time);
-				})
-				.finally(() => {
 					this.loading = false;
-				});
+				})
+				
 		},
 		stringToHTML(html) {
 			// Create a new div element
