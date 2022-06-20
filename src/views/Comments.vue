@@ -27,10 +27,10 @@
 						></span
 					>
 				</div>
-				<div class="container__right--text-field">
+				<!-- <div class="container__right--text-field">
 					<textarea></textarea>
 				</div>
-				<button>add comment</button>
+				<button>add comment</button> -->
 			</div>
 		</div>
 		<!-- <div v-if="news.kids.length === 0" class="loading">load</div> -->
@@ -176,14 +176,9 @@ loading {
 	from {
 		transform: rotate(0deg);
 	}
-	30% {
-		transform: rotate(660deg);
-	}
-	50% {
-		transform: rotate(750deg);
-	}
+	
 	to {
-		transform: rotate(1080deg);
+		transform: rotate(360deg);
 	}
 }
 </style>

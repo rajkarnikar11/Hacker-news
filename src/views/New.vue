@@ -30,7 +30,7 @@ export default {
 			news: [],
 			titles: [],
 			shorturl: [],
-			fetcher:100,
+			fetcher:30,
 			i: 0,
 			arrayFlag: 0,
 			pageCounter: 0,
@@ -41,8 +41,8 @@ export default {
 	created() {
 		this.loading = true;
 		this.fetchId(this.fetcher);
-		console.log("started");
-		console.log(this.pageCounter);
+		// console.log("started");
+		// console.log(this.pageCounter);
 	},
 	methods: {
 		incrementPage() {
@@ -61,7 +61,7 @@ export default {
 				.then((data) => {
 					data.forEach((element) => {
 						this.fetchStory(element,fetcher);
-						console.log(fetcher)
+						// console.log(fetcher)
 					});
 				});
 		},
@@ -114,14 +114,9 @@ export default {
 	from {
 		transform: rotate(0deg);
 	}
-	30% {
-		transform: rotate(660deg);
-	}
-	50% {
-		transform: rotate(750deg);
-	}
+	
 	to {
-		transform: rotate(1080deg);
+		transform: rotate(360deg);
 	}
 }
 </style>

@@ -13,17 +13,17 @@
 						</span>
 					</a>
 
-					<a :href="news.url" class="link link-url"> ({{ shorturl.url }}) </a>
+					<a :href="news.url" class="link link-url"> ({{ editUrl(news.url) }}) </a>
 				</div>
 				<div class="container__right-bottom">
 					<span
-						>{{ point }} points by<a
+						>{{ news.score }} points by<a
 							class="name"
 							:href="'/user/' + news.by"
 						>
 							{{ news.by }}</a
 						>
-						{{ moment(actualTime).fromNow() }}
+						{{actualTime }}
 					</span>
 					<span
 						><router-link class="comment" :to="'/comment/' + id"
@@ -45,22 +45,29 @@ export default {
 			moment: moment,
 			shorturl: {},
 			isFetching: true,
-			actualTime: 0,
+			Time: 0,
 			day: 0,
 		};
 	},
 	created() {
-		this.fetchNews(this.id)
-		this.editUrl(this.news.url);
-		this.actualTime = moment.unix(this.news.time);
-		this.day = moment(this.actualTime).format("dddd");
+		
+		this.fetchNews(this.id);
+		// this.editUrl(this.news.url);
+		// this.actualTime = moment.unix(this.news.time);
 		// console.log(moment(this.actualTime).fromNow());
 	},
+	computed:{
+		actualTime(){
+			 this.Time = moment.unix(this.news.time);
+			return  moment(this.Time).fromNow()
+		}
+	},
+	
 	methods: {
 		
-		fetchNews(id){
+		 fetchNews(id){
 			this.loading=true;
-			fetch(
+			 fetch(
 				`https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`,
 			)
 				.then((res) => {
@@ -68,16 +75,17 @@ export default {
 				})
 				.then((data) => {
 					this.news=data;
-						this.loading = false;
+					this.loading = false;
 					this.i++;
 				});
 		
 		},
 		editUrl(data) {
-			if (this.url) {
+			if (this.news.url) {
 				let count = 0;
 				let first = data.substring(8);
 				let turned = first.split("");
+				
 				for (let x = 0; x < turned.length; x++) {
 					if (turned[x] != "/" || turned[x] != "/") {
 						count++;
@@ -87,7 +95,7 @@ export default {
 				}
 				let edited = first.substring(0, count);
 
-				this.shorturl.url = edited;
+				return edited;
 			}
 		},
 	},
@@ -118,14 +126,9 @@ export default {
 	from {
 		transform: rotate(0deg);
 	}
-	30% {
-		transform: rotate(660deg);
-	}
-	50% {
-		transform: rotate(750deg);
-	}
+	
 	to {
-		transform: rotate(1080deg);
+		transform: rotate(360deg);
 	}
 }
 a {

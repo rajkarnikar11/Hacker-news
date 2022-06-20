@@ -14,7 +14,7 @@
 			<router-link class="nav__link" to="/submit">submit</router-link> -->
 		</div>
 		<div class="nav__right">
-			<router-link class="nav__link" to="/submit">login</router-link>
+			
 		</div>
 	</nav>
 </template>
