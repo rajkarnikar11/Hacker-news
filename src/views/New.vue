@@ -1,19 +1,14 @@
 <template>
 	<div class="home">
-		<div v-if="i === 0" class="loading"></div>
+		<div v-if="loading " class="loading"></div>
 
 		<div v-for="(data, index) in news" :key="data.id">
 			<News
 				v-if="index >= pageCounter && index < pageCounter + 30"
 				:index="index"
-				:url="data.url"
-				:title="data.title"
+				
 				:id="data.id"
-				:point="data.score"
-				:name="data.by"
-				:comments="data.descendants"
-				:no="data.id"
-				:time="data.time"
+				
 				>i++</News
 			>
 			<!-- <div>{{ data.id }} {{ data.title }}</div> -->
@@ -35,6 +30,7 @@ export default {
 			news: [],
 			titles: [],
 			shorturl: [],
+			fetcher:30,
 			i: 0,
 			arrayFlag: 0,
 			pageCounter: 0,
@@ -43,7 +39,8 @@ export default {
 		};
 	},
 	created() {
-		this.fetchId();
+		this.loading = true;
+		this.fetchId(this.fetcher);
 		console.log("started");
 		console.log(this.pageCounter);
 	},
@@ -51,21 +48,26 @@ export default {
 		incrementPage() {
 			console.log("clicked");
 			console.log(this.pageCounter);
+			this.fetcher=this.fetcher+30;
 			this.pageCounter = this.pageCounter + 30;
+			this.fetchId(this.fetcher);
 		},
-		fetchId() {
+		fetchId(fetcher	) {
 			fetch("https://hacker-news.firebaseio.com/v0/newstories.json")
 				.then((res) => {
 					return res.json();
+					
 				})
 				.then((data) => {
 					data.forEach((element) => {
-						this.fetchStory(element);
+						this.fetchStory(element,fetcher);
+						console.log(fetcher)
 					});
 				});
 		},
 
-		fetchStory(id) {
+		fetchStory(id,fetcher) {
+			if(this.i<(fetcher)){
 			fetch(
 				`https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`,
 			)
@@ -75,13 +77,20 @@ export default {
 				.then((data) => {
 					this.news.push(data);
 
-					this.i++;
-				});
+					
+				}).finally(() => {
+					this.fetcher=this.fetcher +30;
+					this.loading = false;
+				});	
+			}
+			this.i++;
+			
 		},
 	},
 };
 </script>
 <style scoped>
+
 .more-button {
 	color: #a8a8a8;
 	background: none;

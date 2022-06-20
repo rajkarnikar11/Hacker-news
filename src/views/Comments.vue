@@ -33,6 +33,7 @@
 				<button>add comment</button>
 			</div>
 		</div>
+		<!-- <div v-if="news.kids.length === 0" class="loading">load</div> -->
 		<div class="comments-container">
 			<div v-for="kid in news.kids" :key="kid">
 				<Comment :id="kid" />
@@ -161,5 +162,28 @@ textarea {
 }
 .title--comment {
 	color: #a8a8a8 !important;
+}
+loading {
+	border-radius: 100%;
+	border: 2px solid rgb(128, 128, 128, 0.3);
+	border-top: 3px solid rgb(255, 102, 0, 0.7);
+	height: 20px;
+	width: 20px;
+	background: #f7f7ef;
+	animation: spin 1s linear infinite;
+}
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	30% {
+		transform: rotate(660deg);
+	}
+	50% {
+		transform: rotate(750deg);
+	}
+	to {
+		transform: rotate(1080deg);
+	}
 }
 </style>

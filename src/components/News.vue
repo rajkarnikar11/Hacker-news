@@ -1,35 +1,36 @@
 <template>
-	<div class="container">
-		<div class="container__left">
-			<div>{{ index + 1 }}.</div>
-			<!-- <img class="up-icon" src="../assets/up-icon.svg" /> -->
-		</div>
-		<div class="container__right">
-			<div class="container__right-top">
-				<a :href="url" class="link">
-					<span class="title">
-						{{ title }}
-					</span>
-				</a>
-
-				<a :href="url" class="link link-url"> ({{ shorturl.url }}) </a>
+	<div>
+		<div v-if="loading" class="loading"> </div>
+		<div  class="container">			
+			<div class="container__left">
+				<div>{{ index + 1 }}.</div>
 			</div>
-			<div class="container__right-bottom">
-				<span
-					>{{ point }} points by<a
-						class="name"
-						:href="'/user/' + name"
+			<div class="container__right">
+				<div class="container__right-top">
+					<a :href="news.url" class="link">
+						<span class="title">
+							{{ news.title }}
+						</span>
+					</a>
+
+					<a :href="news.url" class="link link-url"> ({{ shorturl.url }}) </a>
+				</div>
+				<div class="container__right-bottom">
+					<span
+						>{{ point }} points by<a
+							class="name"
+							:href="'/user/' + news.by"
+						>
+							{{ news.by }}</a
+						>
+						{{ moment(actualTime).fromNow() }}
+					</span>
+					<span
+						><router-link class="comment" :to="'/comment/' + id"
+							>{{ news.descendants }} comments</router-link
+						></span
 					>
-						{{ name }}</a
-					>
-					{{ moment(actualTime).fromNow() }}
-				</span>
-				<!-- <span class="hide">hide</span> -->
-				<span
-					><router-link class="comment" :to="'/comment/' + id"
-						>{{ comments }} comments</router-link
-					></span
-				>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -40,6 +41,7 @@ var moment = require("moment");
 export default {
 	data() {
 		return {
+			news:[],
 			moment: moment,
 			shorturl: {},
 			isFetching: true,
@@ -48,12 +50,29 @@ export default {
 		};
 	},
 	created() {
-		this.editUrl(this.url);
-		this.actualTime = moment.unix(this.time);
+		this.fetchNews(this.id)
+		this.editUrl(this.news.url);
+		this.actualTime = moment.unix(this.news.time);
 		this.day = moment(this.actualTime).format("dddd");
 		// console.log(moment(this.actualTime).fromNow());
 	},
 	methods: {
+		
+		fetchNews(id){
+			this.loading=true;
+			fetch(
+				`https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`,
+			)
+				.then((res) => {
+					return res.json();
+				})
+				.then((data) => {
+					this.news=data;
+						this.loading = false;
+					this.i++;
+				});
+		
+		},
 		editUrl(data) {
 			if (this.url) {
 				let count = 0;
@@ -76,21 +95,39 @@ export default {
 	// 	// this.hours = hours;
 	// },
 	props: [
-		"title",
+		
 		"id",
 		"index",
-		"url",
-		"point",
-		"name",
-		"comments",
-		"no",
-
-		"time",
+		
 	],
 };
 </script>
 
 <style scoped>
+.loading {
+	border-radius: 100%;
+	border: 2px solid rgb(128, 128, 128, 0.3);
+	border-top: 3px solid rgb(255, 102, 0, 0.7);
+	height: 20px;
+	width: 20px;
+	background: #f7f7ef;
+	margin: 10px ;
+	animation: spin 1s linear infinite;
+}
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	30% {
+		transform: rotate(660deg);
+	}
+	50% {
+		transform: rotate(750deg);
+	}
+	to {
+		transform: rotate(1080deg);
+	}
+}
 a {
 	text-decoration: none;
 	color: black;

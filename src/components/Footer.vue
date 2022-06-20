@@ -8,24 +8,24 @@
 				>
 			</li>
 			<li class="list-item">
-				<a href="https://news.ycombinator.com/newsfaq.html">FAQ</a>
+				<router-link to="https://news.ycombinator.com/newsfaq.html">FAQ</router-link>
 			</li>
 			<li class="list-item">
-				<a href="https://news.ycombinator.com/lists">Lists</a>
+				<router-link to="https://news.ycombinator.com/lists">Lists</router-link>
 			</li>
 			<li class="list-item">
-				<a href="https://news.ycombinator.com/lists">API</a>
+				<a to="https://news.ycombinator.com/lists">API</a>
 			</li>
 			<li class="list-item">
-				<a href="https://news.ycombinator.com/security.html"
-					>Security</a
+				<router-link to="https://news.ycombinator.com/security.html"
+					>Security</router-link
 				>
 			</li>
 			<li class="list-item">
-				<a href="https://www.ycombinator.com/legal/">Legal</a>
+				<router-link to="https://www.ycombinator.com/legal/">Legal</router-link>
 			</li>
 			<li class="list-item">
-				<a href="https://www.ycombinator.com/apply/">Apply to YC</a>
+				<router-link to="https://www.ycombinator.com/apply/">Apply to YC</router-link>
 			</li>
 			<li class="list-item">Contact</li>
 		</ul>

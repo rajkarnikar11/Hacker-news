@@ -13,7 +13,9 @@
 				<span class="info__collapse">[ - ]</span> -->
 			</div>
 			<div class="text">
-				<div v-if="!body" class="loading"></div>
+					<div v-if="loading" class="loading"> </div>
+
+				<!-- <div v-if="!body" class="loading"></div> -->
 				{{ body }}
 			</div>
 			<!-- <p class="comment__reply">reply</p> -->
@@ -45,6 +47,7 @@ export default {
 	},
 	methods: {
 		fetchComment(id) {
+			this.loading = true;
 			fetch(`https://hacker-news.firebaseio.com/v0//item/${id}.json`)
 				.then((res) => {
 					return res.json();
@@ -55,6 +58,9 @@ export default {
 					this.data = res;
 					this.body = this.stringToHTML(this.data.text);
 					this.actualTime = moment.unix(this.data.time);
+				})
+				.finally(() => {
+					this.loading = false;
 				});
 		},
 		stringToHTML(html) {
@@ -120,8 +126,8 @@ a:host {
 	border-radius: 100%;
 	border: 2px solid rgb(128, 128, 128, 0.3);
 	border-top: 3px solid rgb(255, 102, 0, 0.7);
-	height: 20px;
-	width: 20px;
+	height: 20px !important;
+	width: 20px !important;
 	background: #f7f7ef;
 	animation: spin 1s linear infinite;
 }
